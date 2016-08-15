@@ -137,7 +137,12 @@ var createMiddleware = function express_minify(options) {
       var buffer = Buffer.concat(buf);
 
       // prepare uglify options
-      var uglifyOptions = {};
+      var uglifyOptions = {
+          output: {
+              ascii_only: true
+          }
+      };
+      
       if (this._no_mangle) {
         uglifyOptions.mangle = false;
       }
